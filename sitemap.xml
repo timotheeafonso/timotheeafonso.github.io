@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://timotheeafonso.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/projects.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/fr/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/projects.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/experience.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/experience.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/fr/experience.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/experience.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/skill.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/skill.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/skill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/skill.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/fr/skill.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/skill.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/skill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/skill.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

@@ -1,0 +1,7 @@
+.DS_Store
+
+# Diplômes et certificat : présents sur le disque, référencés par aucune page.
+# Les publier les rendrait accessibles à des URLs devinables — supprimer ces
+# lignes pour les mettre en ligne volontairement.
+assets/files/diploma-*.pdf
+assets/files/certificate-aws.pdf

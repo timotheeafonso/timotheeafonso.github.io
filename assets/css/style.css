@@ -1,0 +1,651 @@
+/* ==========================================================================
+   Timothee Afonso — portfolio
+   Recréation locale (HTML / CSS / JS) du site Framer timothee-afonso.framer.website
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Polices
+   -------------------------------------------------------------------------- */
+@font-face{font-family:'Poppins';font-style:normal;font-weight:200;font-display:swap;
+  src:url('../fonts/poppins-200-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:200;font-display:swap;
+  src:url('../fonts/poppins-200-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;
+  src:url('../fonts/poppins-400-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;
+  src:url('../fonts/poppins-400-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;
+  src:url('../fonts/poppins-500-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;
+  src:url('../fonts/poppins-500-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;
+  src:url('../fonts/poppins-600-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;
+  src:url('../fonts/poppins-600-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;
+  src:url('../fonts/poppins-700-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;
+  src:url('../fonts/poppins-700-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+/* Inter est une police variable : un seul fichier couvre 100 → 900 */
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url('../fonts/inter-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+  src:url('../fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+/* --------------------------------------------------------------------------
+   2. Variables et remise à zéro
+   -------------------------------------------------------------------------- */
+/* Couleurs de marque et typographie : identiques dans les deux thèmes */
+:root{
+  --orange:#f46c38;
+  --lime:#c5ff41;
+  --ink:#151312;            /* encre sur les surfaces claires (carte blanche, vert lime) */
+  --on-accent:#fff;         /* texte sur la carte orange */
+  --bio:#6a6b6e;            /* légende de la carte profil, toujours blanche */
+  --dark-pill:#111;         /* pastille de téléchargement */
+  --sans:'Poppins',sans-serif;
+  --inter:'Inter',sans-serif;
+}
+
+/* Thème sombre — celui du site d'origine, appliqué par défaut */
+:root,:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#151312;
+  --fg:#fff;
+  --muted:#998f8f;                   /* textes secondaires */
+  --ghost:rgba(182,180,189,.5);      /* 2e ligne des titres */
+  --surface:rgba(255,255,255,.03);   /* pilule de navigation */
+  --surface-2:rgba(255,255,255,.08); /* survol dans la pilule */
+  --hover:rgba(255,255,255,.03);     /* survol des cartes */
+  --field:rgba(182,180,189,.2);      /* champs de formulaire */
+  --label:#888;
+  --placeholder:#999;
+  --more-bg:rgba(69,69,69,.41);
+  --more-bg-2:rgba(69,69,69,.6);
+  --card:#fff;
+  --card-shadow:none;
+}
+
+/* Thème clair — blanc cassé chaud, encre chaude, accents de marque inchangés */
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f5f4f1;
+  --fg:#171514;
+  --muted:#625b57;                   /* 6.1:1 sur le fond */
+  --ghost:rgba(23,21,20,.48);           /* 2e ligne des titres — lisible sur fond clair */
+  --surface:rgba(23,21,20,.045);
+  --surface-2:rgba(23,21,20,.09);
+  --hover:rgba(23,21,20,.045);
+  --field:rgba(23,21,20,.06);
+  --label:#6f6864;
+  --placeholder:#736b67;
+  --more-bg:rgba(23,21,20,.07);
+  --more-bg-2:rgba(23,21,20,.13);
+  --card:#fff;
+  /* liseré en inset : aucun impact sur la mise en page, contrairement à border */
+  --card-shadow:inset 0 0 0 1px rgba(23,21,20,.08),
+                0 1px 2px rgba(23,21,20,.04),
+                0 12px 32px -14px rgba(23,21,20,.16);
+}
+
+/* Fondu appliqué le temps de la bascule uniquement (jamais au chargement) */
+.theme-switching,.theme-switching *{
+  transition:background-color .28s ease,color .28s ease,border-color .28s ease,box-shadow .28s ease,fill .28s ease;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+p,h1,h2,h3,ul{margin:0;}
+/* Framer coupe les mots trop longs plutôt que de les laisser déborder */
+h1,h2,h3,p,li{overflow-wrap:break-word;}
+ul{padding:0;list-style:none;}
+button,input,textarea{font:inherit;color:inherit;}
+svg{display:block;}
+
+/* --------------------------------------------------------------------------
+   3. Structure générale
+   -------------------------------------------------------------------------- */
+.page{position:relative;display:flex;flex-direction:column;padding-top:160px;background:var(--bg);}
+.wrapper{display:flex;}
+.container{
+  width:100%;
+  max-width:1140px;
+  margin:0 auto;
+  display:flex;
+  gap:100px;
+}
+.left{width:344px;flex:0 0 344px;position:sticky;top:40px;align-self:flex-start;}
+.right{flex:1;min-width:0;display:flex;flex-direction:column;}
+
+/* --------------------------------------------------------------------------
+   4. Navigation (pilule centrée, défile avec la page)
+   -------------------------------------------------------------------------- */
+.nav-wrap{position:absolute;top:30px;left:0;right:0;display:flex;justify-content:center;z-index:10;}
+.nav{
+  display:flex;align-items:center;gap:18px;
+  height:48px;padding:0 20px;
+  background:var(--surface);
+  border-radius:16px;
+}
+.nav a{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  transition:background .2s ease;
+}
+.nav a:hover{background:var(--surface-2);}
+.nav svg{width:20px;height:20px;}
+
+/* Séparateur et bascule de thème */
+.nav__sep{flex:none;width:1px;height:20px;background:currentColor;opacity:.18;}
+.nav__theme{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;padding:0;
+  background:transparent;border:0;border-radius:50%;
+  color:inherit;cursor:pointer;
+  transition:background .2s ease;
+}
+.nav__theme:hover{background:var(--surface-2);}
+.nav__theme svg{width:20px;height:20px;}
+
+/* Bascule de langue : code de la langue vers laquelle on bascule */
+.nav__lang{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.03em;
+  color:inherit;
+  transition:background .2s ease;
+}
+.nav__lang:hover{background:var(--surface-2);}
+/* Le soleil invite à passer en clair, la lune à repasser en sombre */
+:root[data-theme="light"] .icon-sun{display:none;}
+:root:not([data-theme="light"]) .icon-moon{display:none;}
+
+/* Focus clavier visible sur tous les éléments interactifs */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--orange);outline-offset:3px;
+}
+
+/* La pilule se resserre sur les très petits écrans pour rester d'un bloc */
+@media (max-width:479.98px){
+  .nav{gap:11px;padding:0 14px;}
+}
+@media (max-width:359.98px){
+  .nav{gap:8px;padding:0 12px;}
+}
+
+/* --------------------------------------------------------------------------
+   5. Carte profil (colonne de gauche)
+   -------------------------------------------------------------------------- */
+.profile{
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;gap:24px;
+  width:100%;height:640px;padding:30px 20px;
+  background:var(--card);border-radius:16px;box-shadow:var(--card-shadow);
+}
+.profile__arc-top,
+.profile__arc-bottom{position:absolute;background-repeat:no-repeat;background-size:100% 100%;pointer-events:none;}
+.profile__arc-top{width:194px;height:100px;left:0;top:-18px;background-image:url('../img/card-arc-top.svg');}
+.profile__arc-bottom{width:270px;height:166px;left:-135px;top:348px;background-image:url('../img/card-arc-bottom.svg');}
+.profile__photo{width:240px;height:284px;border-radius:16px;object-fit:cover;}
+.profile__bio{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;justify-content:space-between;align-items:center;
+  flex:1;width:100%;
+}
+.profile__name{
+  font-size:36px;line-height:39.6px;font-weight:700;letter-spacing:-.04em;
+  color:var(--ink);text-align:center;white-space:nowrap;
+}
+.profile__foot{display:flex;flex-direction:column;align-items:center;gap:30px;width:100%;}
+.profile__tagline{
+  max-width:300px;
+  font-size:18px;line-height:19.8px;font-weight:500;
+  color:var(--bio);text-align:center;
+}
+.profile__social{display:flex;justify-content:center;align-items:center;gap:16px;}
+.profile__social a{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;padding:6px;border-radius:6px;
+  transition:background .2s ease;
+}
+.profile__social a:hover{background:rgba(0,0,0,.05);}
+.profile__social svg{width:20px;height:20px;}
+
+/* --------------------------------------------------------------------------
+   6. Titres de section
+   -------------------------------------------------------------------------- */
+.title{font-size:90px;line-height:90px;font-weight:700;color:var(--fg);white-space:nowrap;}
+.title span{color:var(--ghost);}
+/* seuls le titre d'accueil et celui des certifications passent à la ligne */
+.title--wrap{white-space:normal;}
+.title--hero{font-size:110px;line-height:110px;}
+
+/* --------------------------------------------------------------------------
+   7. Sections
+   -------------------------------------------------------------------------- */
+.section{display:flex;flex-direction:column;gap:20px;}
+.section--projects,
+.section--skills,
+.section--education,
+.section--services,
+.section--method,
+.section--about,
+.section--certification,
+.section--contact{padding-top:120px;}
+.section--experience{padding-top:140px;}
+.section--first{padding-top:0;}
+.section__lead{
+  max-width:540px;
+  font-size:18px;line-height:25.2px;color:var(--muted);
+  margin-top:-4px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Hero (accueil)
+   -------------------------------------------------------------------------- */
+.hero{display:flex;flex-direction:column;gap:60px;}
+.hero__info{display:flex;flex-direction:column;justify-content:center;gap:10px;min-height:381px;}
+.hero__lead{max-width:540px;font-size:18px;line-height:25.2px;color:var(--muted);}
+.hero__cards{display:flex;align-items:center;gap:30px;}
+.hero__cards:has(> :only-child){max-width:420px;}
+
+.pcard{
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:flex-start;gap:24px;
+  height:240px;padding:40px 20px 22px;border-radius:10px;
+}
+.pcard--resume{width:300px;flex:0 0 300px;background:var(--orange);}
+.pcard--cta{width:100%;max-width:420px;flex:1 1 auto;}
+.pcard--contact{flex:1;background:var(--lime);}
+.pcard__icon{display:block;position:relative;z-index:1;width:38px;height:41px;}
+.pcard__icon svg{width:100%;height:100%;}
+.pcard__body{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;
+  flex:1;width:100%;
+}
+.pcard__title{width:100%;font-size:24px;line-height:26.4px;font-weight:500;color:var(--on-accent);}
+.pcard__list{font-size:24px;line-height:26.4px;font-weight:500;color:var(--ink);width:100%;}
+.pcard__list li{position:relative;padding-left:46px;}
+.pcard__list li::before{content:"\2022";position:absolute;left:4px;top:0;}
+.pcard__list li + li{margin-top:26.4px;}
+.pcard__deco{position:absolute;overflow:hidden;pointer-events:none;}
+.pcard__deco i{display:block;background-repeat:no-repeat;background-size:100% 100%;}
+.pcard--resume .deco-a{left:-58px;top:-57px;width:416px;height:251px;display:flex;align-items:center;justify-content:center;}
+.pcard--resume .deco-a i{width:388px;height:155px;background-image:url('../img/line-orange.svg');}
+.pcard--resume .deco-b{left:-54px;top:86px;width:388px;height:155px;}
+.pcard--resume .deco-b i{width:388px;height:155px;background-image:url('../img/line-orange.svg');}
+.pcard--contact .deco-a{left:-20px;top:-60px;width:422px;height:284px;}
+.pcard--contact .deco-a i{width:422px;height:284px;background-image:url('../img/line-green.svg');}
+.pcard--contact .deco-b{left:-3px;top:146px;width:329px;height:146px;overflow:visible;transform:rotate(4deg);display:flex;align-items:center;justify-content:center;}
+.pcard--contact .deco-b i{width:422px;height:284px;background-image:url('../img/line-green.svg');}
+
+/* Pastille ronde sombre (téléchargement) */
+.pill{
+  position:absolute;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;padding:10px;
+  background:var(--dark-pill);border-radius:50px;
+  transition:transform .2s ease;
+}
+.pill:hover{transform:scale(1.08);}
+.pill svg{width:16px;height:16px;}
+.pcard__body .pill{position:static;flex:0 0 36px;}
+
+/* Flèche orange en haut à droite des cartes cliquables */
+.arrow{position:absolute;right:16px;width:20px;height:20px;transform:rotate(-45deg);}
+.arrow svg{width:100%;height:100%;fill:var(--orange);}
+
+/* --------------------------------------------------------------------------
+   9. Liste de projets
+   -------------------------------------------------------------------------- */
+.list{display:flex;flex-direction:column;align-items:flex-start;width:100%;}
+
+.project{
+  position:relative;display:flex;justify-content:space-between;align-items:center;
+  width:100%;padding:20px 16px;border-radius:16px;
+  transition:background .2s ease;
+}
+a.project:hover{background:var(--hover);}
+.project .arrow{top:36px;}
+.project__inner{display:flex;align-items:center;gap:20px;width:100%;max-width:600px;}
+.project__thumb{
+  flex:0 0 130px;width:130px;aspect-ratio:130/134.72;
+  border-radius:8px;overflow:hidden;
+}
+.project__thumb img{width:100%;height:100%;object-fit:cover;}
+.project__details{display:flex;flex-direction:column;justify-content:center;gap:23px;width:450px;max-width:600px;}
+.project__name{font-size:26px;line-height:31.2px;font-weight:600;color:var(--fg);white-space:nowrap;}
+.project__desc{font-size:16px;line-height:22.4px;color:var(--muted);}
+.project__meta{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:16px;line-height:22.4px;color:var(--fg);}
+.project__meta span:last-child{text-align:right;}
+
+.list__divider{
+  display:flex;align-items:center;gap:16px;
+  width:100%;margin:28px 0 12px;padding:0 16px;
+  font-size:14px;line-height:18px;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--muted);
+}
+.list__divider::before,
+.list__divider::after{
+  content:"";flex:1;height:1px;background:currentColor;opacity:.28;
+}
+
+/* Bouton « + » décoratif sous les listes tronquées */
+.more{
+  align-self:center;
+  grid-column:1 / -1;justify-self:center;
+  display:flex;align-items:center;justify-content:center;
+  width:100px;height:40px;
+  background:var(--more-bg);border-radius:10px;
+  font-family:var(--inter);font-size:31px;line-height:37.2px;font-weight:100;color:var(--fg);
+  transition:background .2s ease;
+}
+.more:hover{background:var(--more-bg-2);}
+
+/* --------------------------------------------------------------------------
+   10. Compétences
+   -------------------------------------------------------------------------- */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:10px;width:100%;}
+.skill{
+  display:flex;align-items:center;gap:16px;
+  padding:16px;border-radius:8px;
+  transition:background .2s ease;
+}
+.skill:hover{background:var(--hover);}
+.skill__icon{flex:0 0 60px;width:60px;height:60px;border-radius:8px;overflow:hidden;}
+.skill__icon img{width:100%;height:100%;object-fit:cover;}
+.skill__text{display:flex;flex-direction:column;justify-content:center;gap:4px;flex:1;min-width:0;}
+.skill__name{font-size:24px;line-height:28.8px;font-weight:600;color:var(--fg);}
+.skill__kind{font-size:16px;line-height:22.4px;color:var(--muted);}
+
+/* --------------------------------------------------------------------------
+   11. Formation / Certification / Expériences
+   -------------------------------------------------------------------------- */
+.entry{
+  position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:20px;
+  width:100%;border-radius:16px;
+  transition:background .2s ease;
+}
+a.entry:hover{background:var(--hover);}
+.entry__details{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;width:100%;}
+.entry__details > *{width:100%;}
+.entry__name{font-size:26px;line-height:31.2px;font-weight:600;color:var(--fg);}
+.entry__sub{font-size:16px;line-height:22.4px;color:var(--muted);}
+.entry__keywords{font-size:12px;line-height:16.8px;font-weight:200;color:var(--muted);}
+.entry__meta{
+  display:flex;justify-content:space-between;align-items:center;width:100%;
+  font-size:16px;line-height:17.6px;color:var(--muted);
+}
+.entry__meta span:last-child{text-align:right;}
+
+/* Formation */
+.entry--education{padding:30px 16px;}
+.entry--education .entry__details{max-width:480px;}
+.entry--education .pill{top:25px;right:16px;}
+
+/* Certification */
+.entry--certification{padding:24px 16px;}
+.entry--certification .entry__details{max-width:420px;min-height:31px;justify-content:center;}
+.entry--certification .entry__sub{max-width:500px;}
+.entry--certification .pill{top:36px;right:16px;}
+.entry--certification .arrow{top:36px;}
+
+/* Expériences */
+.entry--experience{padding:24px 16px;}
+.entry--experience .entry__details{max-width:420px;}
+.entry--experience .arrow{top:46px;}
+
+/* --------------------------------------------------------------------------
+   12. Services / méthode (accueil freelance)
+   -------------------------------------------------------------------------- */
+.services{display:flex;flex-direction:column;gap:10px;width:100%;}
+.service{
+  display:flex;flex-direction:column;align-items:flex-start;gap:12px;
+  width:100%;padding:28px 16px;border-radius:16px;
+  transition:background .2s ease;
+}
+.service:hover{background:var(--hover);}
+.service__name{font-size:26px;line-height:31.2px;font-weight:600;color:var(--fg);}
+.service__desc{max-width:520px;font-size:16px;line-height:22.4px;color:var(--muted);}
+.service__meta{
+  display:flex;flex-wrap:wrap;gap:8px 16px;
+  font-size:14px;line-height:18px;font-weight:500;color:var(--fg);
+}
+.service__meta span{color:var(--muted);font-weight:400;}
+
+.method{display:flex;flex-direction:column;gap:10px;width:100%;}
+.method__step{
+  display:flex;align-items:flex-start;gap:20px;
+  width:100%;padding:24px 16px;border-radius:16px;
+}
+.method__num{
+  flex:0 0 48px;
+  font-size:42px;line-height:42px;font-weight:700;letter-spacing:-.04em;
+  color:var(--orange);
+}
+.method__body{display:flex;flex-direction:column;gap:8px;min-width:0;}
+.method__title{font-size:24px;line-height:28.8px;font-weight:600;color:var(--fg);}
+.method__text{max-width:480px;font-size:16px;line-height:22.4px;color:var(--muted);}
+
+.about__text{
+  max-width:540px;
+  font-size:18px;line-height:25.2px;color:var(--muted);
+}
+.about__links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;}
+.about__link{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:40px;padding:0 18px;
+  background:var(--field);border-radius:8px;
+  font-family:var(--inter);font-size:14px;line-height:16.8px;font-weight:600;color:var(--fg);
+  transition:background .2s ease,filter .2s ease;
+}
+.about__link:hover{background:var(--more-bg-2);}
+.about__link--accent{background:var(--orange);color:var(--on-accent);}
+.about__link--accent:hover{filter:brightness(1.08);background:var(--orange);}
+
+.project__result{
+  font-size:14px;line-height:19.6px;font-weight:500;color:var(--fg);
+}
+.project__result span{color:var(--orange);}
+
+.pcard--cta .pcard__body{align-items:flex-start;}
+.pcard--cta .pcard__title{color:var(--on-accent);}
+.pcard--cta .pcard__hint{
+  width:100%;margin-top:auto;
+  font-size:14px;line-height:18px;font-weight:400;color:rgba(255,255,255,.78);
+}
+.pcard a.pcard__hit{
+  position:absolute;inset:0;z-index:3;
+  border-radius:inherit;
+}
+.pcard a.pcard__hit:focus-visible{outline-offset:-4px;}
+
+/* --------------------------------------------------------------------------
+   13. Formulaire de contact
+   -------------------------------------------------------------------------- */
+.section--contact{gap:50px;}
+.form{display:flex;flex-direction:column;align-items:flex-start;gap:20px;width:100%;}
+.form__row{display:flex;align-items:center;gap:20px;width:100%;}
+.form__field{display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex:1;min-width:0;}
+.form > .form__field{width:100%;flex:none;}
+.form__label{font-size:12px;line-height:14.4px;font-weight:500;color:var(--label);}
+.form__label--message{font-size:12px;line-height:16.8px;font-weight:400;color:var(--muted);}
+.form__control{display:block;width:100%;background:var(--field);border-radius:8px;}
+.form input,
+.form textarea{
+  width:100%;padding:12px;
+  font-family:var(--sans);font-size:14px;line-height:1.2em;font-weight:400;
+  color:var(--fg);background:transparent;border:0;border-radius:8px;outline:0;
+}
+.form input{height:40px;}
+.form textarea{height:100px;resize:vertical;display:block;}
+.form input::placeholder,
+.form textarea::placeholder{color:var(--placeholder);}
+.form input:focus,
+.form textarea:focus{box-shadow:inset 0 0 0 1px var(--orange);}
+.form__submit{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;height:40px;
+  background:var(--orange);border:0;border-radius:8px;cursor:pointer;
+  font-family:var(--inter);font-size:14px;line-height:16.8px;font-weight:600;color:var(--on-accent);
+  transition:filter .2s ease;
+}
+.form__submit:hover{filter:brightness(1.08);}
+.form__status{font-size:14px;line-height:1.4;color:var(--muted);}
+.form__status:empty{display:none;}
+
+/* --------------------------------------------------------------------------
+   14. Pied de page
+   -------------------------------------------------------------------------- */
+.footer{display:flex;flex-direction:column;gap:30px;padding:160px 0 80px;}
+.footer__links{display:flex;justify-content:center;align-items:center;gap:40px;height:22px;}
+
+/* --------------------------------------------------------------------------
+   15. Animation d'apparition au scroll
+   -------------------------------------------------------------------------- */
+.reveal{opacity:0;transform:translateY(-20px);}
+.reveal.is-visible{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;}
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important;}
+}
+
+/* --------------------------------------------------------------------------
+   16. Écrans 1080 → 1439 px
+   -------------------------------------------------------------------------- */
+@media (max-width:1439.98px) and (min-width:1080px){
+  .container{padding:0 40px;gap:50px;}
+  /* Sous 1140px la colonne devient trop étroite pour les titres en nowrap :
+     on resserre la gouttière plutôt que de laisser déborder la fenêtre. */
+  @media (max-width:1139.98px){
+    .container{padding:0 24px;gap:40px;}
+  }
+  .title--hero{font-size:94px;line-height:94px;}
+  .project__inner{max-width:none;}
+  .project__details{width:380px;max-width:380px;}
+  .project__name{white-space:normal;}
+  .hero__cards{gap:20px;}
+  .pcard{height:260px;}
+  .pcard--resume{width:260px;flex:0 0 260px;}
+}
+
+/* --------------------------------------------------------------------------
+   17. Tablette : 810 → 1079 px
+   -------------------------------------------------------------------------- */
+@media (max-width:1079.98px) and (min-width:810px){
+  .page{padding-top:120px;}
+  .container{max-width:810px;padding:0 30px;flex-direction:column;gap:40px;}
+  .left{width:100%;flex:none;position:static;}
+  .page--sub .left{order:1;}
+  .page--sub .section--first{padding-top:20px;}
+  .profile{height:540px;}
+  .profile__arc-top{left:171px;top:-34px;}
+  .profile__foot{gap:20px;}
+
+  .title{font-size:74px;line-height:74px;text-align:center;}
+  .title--hero{font-size:86px;line-height:86px;}
+
+  .section--projects,.section--skills,.section--education,
+  .section--services,.section--method,.section--about,
+  .section--experience,.section--certification,.section--contact{padding-top:90px;}
+
+  .hero__info{align-items:center;}
+  .hero__lead,.section__lead,.about__text{font-size:16px;line-height:22.4px;text-align:center;}
+  .section__lead,.about__text{max-width:none;}
+  .about__links{justify-content:center;}
+  .pcard--resume,.pcard--cta{width:100%;max-width:420px;flex:none;}
+  .hero__cards:has(> :only-child){max-width:420px;margin:0 auto;}
+  .skills{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .entry--certification{width:696px;}
+  .project__name,.service__name{font-size:20px;line-height:24px;white-space:normal;}
+  .entry__name,.method__title{font-size:20px;line-height:24px;}
+  .project__details{width:auto;flex:1;}
+  .method__step{justify-content:center;}
+}
+
+/* --------------------------------------------------------------------------
+   18. Mobile : ≤ 809 px
+   -------------------------------------------------------------------------- */
+@media (max-width:809.98px){
+  .page{padding-top:100px;}
+  .nav-wrap{top:20px;}
+  .container{max-width:none;padding:0 20px;flex-direction:column;gap:40px;}
+  .left{width:100%;flex:none;position:static;}
+  .page--sub .left{order:1;}
+  .page--sub .section--first{padding-top:20px;}
+
+  .profile{height:auto;min-height:457px;}
+  .profile__arc-top{left:0;top:-37px;}
+  .profile__arc-bottom{left:-165px;top:157px;}
+  .profile__photo{width:100%;max-width:260px;height:210px;}
+  .profile__bio{justify-content:flex-start;gap:16px;}
+  .profile__foot{gap:16px;}
+
+  .title{font-size:42px;line-height:42px;text-align:center;}
+  .title--hero{font-size:52px;line-height:52px;}
+
+  .section--projects,.section--skills,.section--education,
+  .section--services,.section--method,.section--about,
+  .section--experience,.section--certification,.section--contact{padding-top:80px;}
+
+  /* Sur les pages CV (expérience / formation), ordre mobile d'origine */
+  .page--sub .section--experience{order:1;}
+  .page--sub .section--education{order:2;}
+  .page--sub .section--certification{order:3;}
+  .page--sub .section--contact{order:4;}
+
+  .hero{gap:70px;}
+  .hero__info{align-items:center;}
+  .hero__lead,.section__lead,.about__text{font-size:16px;line-height:22.4px;text-align:center;max-width:none;}
+  .about__links{justify-content:center;}
+  .hero__cards{flex-direction:column;align-items:center;gap:20px;}
+  .pcard{width:100%;height:auto;min-height:189px;}
+  .pcard--resume,.pcard--cta{flex:none;}
+  .pcard--contact{flex:none;}
+  .pcard__list li{padding-left:36px;}
+
+  .project,.service,.method__step{padding:20px 8px;}
+  .project__inner{gap:12px;max-width:none;}
+  .project__thumb{flex:0 0 90px;width:90px;}
+  .project__details{width:auto;flex:1;gap:9px;}
+  .project__name,.service__name{font-size:18px;line-height:21.6px;white-space:normal;}
+
+  .skills{grid-template-columns:minmax(0,1fr);}
+
+  .entry__name,.method__title{font-size:18px;line-height:21.6px;}
+  .method__num{font-size:32px;line-height:32px;flex-basis:36px;}
+  .section--contact{gap:20px;}
+  .entry--education{padding:20px 8px;}
+  .entry--experience{padding:16px 8px;}
+  .entry--education .pill{top:20px;right:8px;}
+  .entry--experience .arrow,.project .arrow{right:8px;top:20px;}
+  .entry__details{max-width:none !important;}
+  .entry--certification .entry__sub{max-width:none;}
+  .entry__meta{flex-wrap:wrap;gap:6px;}
+
+  .footer{padding:160px 0 80px;}
+}
