@@ -712,17 +712,20 @@ a.entry:hover{background:var(--hover);}
 .nav{position:relative;}
 .nav__glow{
   position:absolute;top:50%;left:0;width:36px;height:36px;margin-top:-18px;
-  border-radius:50%;background:var(--surface-2);opacity:0;
-  transition:transform .34s cubic-bezier(.22,1,.36,1),
-             width .34s cubic-bezier(.22,1,.36,1),
-             opacity .18s ease;
+  border-radius:50%;background:var(--orange);
+  box-shadow:0 0 0 2px var(--lime), 0 6px 18px rgba(244,108,56,.45);
+  opacity:0;transform:translateX(0) scale(.5);
+  transition:transform .42s cubic-bezier(.34,1.4,.5,1),
+             width .42s cubic-bezier(.34,1.4,.5,1),
+             opacity .22s ease;
   pointer-events:none;
 }
 .nav--glow.is-hover .nav__glow{opacity:1;}
-.nav--glow a,.nav--glow .nav__theme{position:relative;z-index:1;}
-.nav--glow a:hover,.nav--glow .nav__theme:hover{background:transparent;}
-.nav svg{transition:transform .25s cubic-bezier(.22,1,.36,1);}
-.nav a:hover svg,.nav__theme:hover svg{transform:translateY(-1px) scale(1.12);}
+/* l'icone survolee passe en encre sombre pour ressortir sur l'orange */
+.nav--glow a,.nav--glow .nav__theme{position:relative;z-index:1;transition:color .22s ease;}
+.nav--glow a:hover,.nav--glow .nav__theme:hover{background:transparent;color:var(--ink);}
+.nav svg{transition:transform .3s cubic-bezier(.34,1.4,.5,1);}
+.nav a:hover svg,.nav__theme:hover svg{transform:translateY(-2px) scale(1.14);}
 
 @media (max-width:809px){
   .list--timeline{padding-left:30px;}

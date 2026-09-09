@@ -139,17 +139,27 @@
     navBar.classList.add('nav--glow');
 
     var slots = navBar.querySelectorAll('a, button');
+    var glowX = 0;
+
+    function placeGlow(scale) {
+      glow.style.transform = 'translateX(' + glowX + 'px) scale(' + scale + ')';
+    }
     function moveGlow(el) {
+      glowX = el.offsetLeft;
       glow.style.width = el.offsetWidth + 'px';
-      glow.style.transform = 'translateX(' + el.offsetLeft + 'px)';
+      placeGlow(1);
       navBar.classList.add('is-hover');
+    }
+    function hideGlow() {
+      navBar.classList.remove('is-hover');
+      placeGlow(0.5);          /* se retracte sur place plutot que de sauter */
     }
     Array.prototype.forEach.call(slots, function (el) {
       el.addEventListener('mouseenter', function () { moveGlow(el); });
       el.addEventListener('focus', function () { moveGlow(el); });
     });
-    navBar.addEventListener('mouseleave', function () { navBar.classList.remove('is-hover'); });
-    navBar.addEventListener('focusout', function () { navBar.classList.remove('is-hover'); });
+    navBar.addEventListener('mouseleave', hideGlow);
+    navBar.addEventListener('focusout', hideGlow);
   }
 
   /* ---------- 3. Formulaire de contact (Formspree) ------------------------ */
