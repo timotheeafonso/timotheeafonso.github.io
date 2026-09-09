@@ -92,6 +92,66 @@
     if (stored !== 'light' && stored !== 'dark') apply(event.matches ? 'light' : 'dark', true);
   });
 
+
+  /* ---------- 4. Frise chronologique (page expériences) ------------------- */
+  /* La barre se remplit selon la position d'une ligne de lecture placée aux
+     45 % de la hauteur de fenêtre ; chaque jalon s'allume en la franchissant. */
+  var timeline = document.querySelector('.list--timeline');
+  if (timeline) {
+    var fill = timeline.querySelector('.timeline__fill');
+    var milestones = timeline.querySelectorAll('.entry--experience');
+    var PAD = 38;            /* décalage haut/bas de la barre, cf. CSS */
+    var queued = false;
+
+    function drawTimeline() {
+      queued = false;
+      var box = timeline.getBoundingClientRect();
+      var span = Math.max(1, box.height - PAD * 2);
+      var readLine = window.innerHeight * 0.45;
+      var ratio = (readLine - (box.top + PAD)) / span;
+      ratio = Math.min(1, Math.max(0, ratio));
+      if (fill) fill.style.height = (ratio * span) + 'px';
+      Array.prototype.forEach.call(milestones, function (el) {
+        var reached = el.getBoundingClientRect().top + PAD <= readLine;
+        el.classList.toggle('is-reached', reached);
+      });
+    }
+
+    function queueTimeline() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(drawTimeline);
+    }
+
+    window.addEventListener('scroll', queueTimeline, { passive: true });
+    window.addEventListener('resize', queueTimeline);
+    drawTimeline();
+  }
+
+  /* ---------- 5. Pastille glissante de la navigation ---------------------- */
+  /* Créée en JS : sans script, le survol CSS d'origine reste en place. */
+  var navBar = document.querySelector('.nav');
+  if (navBar) {
+    var glow = document.createElement('span');
+    glow.className = 'nav__glow';
+    glow.setAttribute('aria-hidden', 'true');
+    navBar.insertBefore(glow, navBar.firstChild);
+    navBar.classList.add('nav--glow');
+
+    var slots = navBar.querySelectorAll('a, button');
+    function moveGlow(el) {
+      glow.style.width = el.offsetWidth + 'px';
+      glow.style.transform = 'translateX(' + el.offsetLeft + 'px)';
+      navBar.classList.add('is-hover');
+    }
+    Array.prototype.forEach.call(slots, function (el) {
+      el.addEventListener('mouseenter', function () { moveGlow(el); });
+      el.addEventListener('focus', function () { moveGlow(el); });
+    });
+    navBar.addEventListener('mouseleave', function () { navBar.classList.remove('is-hover'); });
+    navBar.addEventListener('focusout', function () { navBar.classList.remove('is-hover'); });
+  }
+
   /* ---------- 3. Formulaire de contact (Formspree) ------------------------ */
   var form = document.querySelector('.form');
   if (!form) return;

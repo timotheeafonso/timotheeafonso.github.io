@@ -678,3 +678,54 @@ a.entry:hover{background:var(--hover);}
 .legal__text{font-family:var(--inter);font-size:16px;line-height:24px;color:var(--muted);}
 .legal__text a{color:var(--orange);}
 .legal__todo{background:var(--orange);color:var(--on-accent);padding:1px 7px;border-radius:5px;font-weight:600;}
+
+/* --------------------------------------------------------------------------
+   Frise chronologique de la page expériences
+   La barre se remplit au scroll ; chaque jalon s'allume quand on l'atteint.
+   -------------------------------------------------------------------------- */
+.list--timeline{position:relative;padding-left:38px;}
+.list--timeline::before{
+  content:"";position:absolute;left:7px;top:38px;bottom:38px;
+  width:2px;border-radius:2px;background:var(--surface-2);
+}
+.timeline__fill{
+  position:absolute;left:7px;top:38px;width:2px;height:0;border-radius:2px;
+  background:linear-gradient(180deg,var(--orange),var(--lime));
+  transition:height .12s linear;
+}
+.list--timeline .entry--experience::before{
+  content:"";position:absolute;left:-36px;top:32px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--bg);box-shadow:0 0 0 2px var(--surface-2);
+  transition:background .3s ease,box-shadow .3s ease,transform .3s ease;
+}
+.list--timeline .entry--experience.is-reached::before{
+  background:var(--orange);
+  box-shadow:0 0 0 2px var(--orange),0 0 0 7px rgba(244,108,56,.16);
+  transform:scale(1.06);
+}
+
+/* --------------------------------------------------------------------------
+   Pastille glissante de la navigation (posée par JS : sans JS, le survol
+   d'origine reste actif)
+   -------------------------------------------------------------------------- */
+.nav{position:relative;}
+.nav__glow{
+  position:absolute;top:50%;left:0;width:36px;height:36px;margin-top:-18px;
+  border-radius:50%;background:var(--surface-2);opacity:0;
+  transition:transform .34s cubic-bezier(.22,1,.36,1),
+             width .34s cubic-bezier(.22,1,.36,1),
+             opacity .18s ease;
+  pointer-events:none;
+}
+.nav--glow.is-hover .nav__glow{opacity:1;}
+.nav--glow a,.nav--glow .nav__theme{position:relative;z-index:1;}
+.nav--glow a:hover,.nav--glow .nav__theme:hover{background:transparent;}
+.nav svg{transition:transform .25s cubic-bezier(.22,1,.36,1);}
+.nav a:hover svg,.nav__theme:hover svg{transform:translateY(-1px) scale(1.12);}
+
+@media (max-width:809px){
+  .list--timeline{padding-left:30px;}
+  .list--timeline::before,.timeline__fill{left:5px;}
+  .list--timeline .entry--experience::before{left:-30px;}
+}
