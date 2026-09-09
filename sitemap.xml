@@ -65,4 +65,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://timotheeafonso.com/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/legal.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://timotheeafonso.com/fr/mentions-legales.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://timotheeafonso.com/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://timotheeafonso.com/fr/mentions-legales.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timotheeafonso.com/legal.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
 </urlset>

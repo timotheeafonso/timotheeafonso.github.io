@@ -45,7 +45,7 @@ catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
   "url": "https://timotheeafonso.com/fr/",
   "image": "https://timotheeafonso.com/assets/img/profile.webp",
   "jobTitle": "Ingénieur IA / ML freelance",
-  "description": "Ingénieur IA / ML freelance. Vision par ordinateur, NLP, LLM et APIs en production pour startups et équipes industrielles. Angers — missions remote possibles.",
+  "description": "Ingénieur IA / ML freelance. Machine learning et deep learning — feature engineering, prédiction, vision par ordinateur, NLP et LLM — jusqu’à la mise en production. Angers ou remote.",
   "email": "mailto:timothee.afonso.pro@gmail.com",
   "address": {
     "@type": "PostalAddress",
@@ -99,9 +99,9 @@ catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
         <div class="profile">
           <span class="profile__arc-top" aria-hidden="true"></span>
           <span class="profile__arc-bottom" aria-hidden="true"></span>
-          <img class="profile__photo" src="../assets/img/profile.webp" alt="Timothee Afonso" width="240" height="284">
+          <img class="profile__photo" src="../assets/img/profile.webp" alt="Timothée Afonso" width="240" height="284">
           <div class="profile__bio">
-            <p class="profile__name">TIMOTHEE AFONSO</p>
+            <p class="profile__name">TIMOTHÉE AFONSO</p>
             <div class="profile__foot">
               <p class="profile__tagline">Ingénieur IA freelance — ML, deep learning, vision, NLP, LLM, automatisation et optimisation.</p>
               <div class="profile__social">
@@ -116,6 +116,8 @@ catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
       <main class="right">
         <section class="section section--first">
           <h1 class="title title--hero">MES<br><span>PROJETS</span></h1>
+          <h2 class="section__sub">Missions client</h2>
+          <p class="section__lead">Missions réalisées pour des entreprises — le cœur de mon activité freelance.</p>
           <div class="list">
           <div class="project">
             <div class="project__inner">
@@ -137,18 +139,21 @@ catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
               </div>
             </div>
           </div>
-          <p class="list__divider" role="separator">Projets personnels</p>
-          <a class="project" href="https://github.com/timotheeafonso/DeepLearning-Pytorch" target="_blank" rel="noopener">
-            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-1.41 1.41L18.17 11H2v2h16.17l-4.59 4.59L15 19l7-7-7-7z"/></svg></span>
+          <div class="project">
             <div class="project__inner">
-              <div class="project__thumb"><img src="../assets/img/projects/deep-learning-pytorch.webp" alt="Deep learning avec PyTorch" width="130" height="135" loading="lazy"></div>
+              <div class="project__thumb"><img src="../assets/img/projects/cpam-app.webp" alt="Application de relation client" width="130" height="135" loading="lazy"></div>
               <div class="project__details">
-                <h3 class="project__name">Deep learning avec PyTorch</h3>
-                <p class="project__desc">Un ensemble de projets de deep learning réalisés avec PyTorch : fine-tuning d’un grand modèle de langage (BERT), fine-tuning de plusieurs CNN pour des tâches de classification, optimisation de modèles par régularisation et réglage d’hyperparamètres, et implémentation de la descente de gradient pour un problème de régression linéaire.</p>
-                <div class="project__meta"><span>Python</span><span>Public</span></div>
+                <h3 class="project__name">Application relation client</h3>
+                <p class="project__desc">Application et automatisation de la relation client pour la CPAM, menée de bout en bout — spécifications techniques et fonctionnelles, conception de la base PostgreSQL, intégration d’une API publique de données gouvernementales et déploiement. Temps d’échange de documents entre assurés et CPAM réduit de 50 %.</p>
+                <div class="project__meta"><span>Symfony, PHP, PostgreSQL</span><span>Privé · CPAM</span></div>
               </div>
             </div>
-          </a>
+          </div>
+          </div>
+          <details class="rnd">
+            <summary class="rnd__summary">Projets académiques &amp; R&amp;D<span class="rnd__count">4</span></summary>
+            <p class="section__lead">Projets de master et projets personnels, conservés pour les techniques qu’ils couvrent — programmation par contraintes, moteur d’inférence, recherche d’information.</p>
+            <div class="list">
           <a class="project" href="https://github.com/timotheeafonso/SBC-moteur-inference" target="_blank" rel="noopener">
             <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-1.41 1.41L18.17 11H2v2h16.17l-4.59 4.59L15 19l7-7-7-7z"/></svg></span>
             <div class="project__inner">
@@ -182,54 +187,26 @@ catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
               </div>
             </div>
           </a>
-          <a class="project" href="https://github.com/timotheeafonso/QLearning-Snake" target="_blank" rel="noopener">
-            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-1.41 1.41L18.17 11H2v2h16.17l-4.59 4.59L15 19l7-7-7-7z"/></svg></span>
-            <div class="project__inner">
-              <div class="project__thumb"><img src="../assets/img/projects/reinforcement-learning.webp" alt="Apprentissage par renforcement" width="130" height="135" loading="lazy"></div>
-              <div class="project__details">
-                <h3 class="project__name">Apprentissage par renforcement</h3>
-                <p class="project__desc">Développement d’un jeu de snake à 0, 1 ou 2 joueurs. L’apprentissage par renforcement sert à améliorer les agents au fil des parties. Les algorithmes utilisés sont le Q-learning tabulaire et le Q-learning approché. L’algorithme A* a été implémenté pour calculer les distances.</p>
-                <div class="project__meta"><span>Java</span><span>Public</span></div>
-              </div>
-            </div>
-          </a>
-          <a class="project" href="https://github.com/timotheeafonso/GeneticAlgorithm---OneMax" target="_blank" rel="noopener">
-            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-1.41 1.41L18.17 11H2v2h16.17l-4.59 4.59L15 19l7-7-7-7z"/></svg></span>
-            <div class="project__inner">
-              <div class="project__thumb"><img src="../assets/img/projects/evolutionary-algorithm.webp" alt="Algorithme évolutionnaire" width="130" height="135" loading="lazy"></div>
-              <div class="project__details">
-                <h3 class="project__name">Algorithme évolutionnaire</h3>
-                <p class="project__desc">Implémentation d’un algorithme évolutionnaire pour le problème One-Max. Trois stratégies ont été mises en œuvre : l’algorithme steady-state, l’algorithme à estimation de distribution et l’algorithme génétique compact. Une optimisation a été apportée par sélection automatique de l’opérateur de mutation, testée selon deux méthodes : la roulette adaptative et UCB.</p>
-                <div class="project__meta"><span>Python</span><span>Public</span></div>
-              </div>
-            </div>
-          </a>
-          <a class="project" href="https://github.com/timotheeafonso/MachineLearning-ScikitLearn" target="_blank" rel="noopener">
-            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-1.41 1.41L18.17 11H2v2h16.17l-4.59 4.59L15 19l7-7-7-7z"/></svg></span>
-            <div class="project__inner">
-              <div class="project__thumb"><img src="../assets/img/projects/scikit-learn.webp" alt="Machine learning avec Scikit-learn" width="130" height="135" loading="lazy"></div>
-              <div class="project__details">
-                <h3 class="project__name">Machine learning avec Scikit-learn</h3>
-                <p class="project__desc">Création d’un notebook illustrant l’usage de scikit-learn pour des tâches de classification, de régression et de clustering, sur différents jeux de données. Ce projet s’inscrit dans le cours en ligne : Building Machine Learning Solutions with scikit-learn.</p>
-                <div class="project__meta"><span>Python</span><span>Public</span></div>
-              </div>
-            </div>
-          </a>
-          <a class="project" href="https://github.com/timotheeafonso/Minizinc-Angular-Puzzle" target="_blank" rel="noopener">
+          <a class="project" href="https://github.com/timotheeafonso/MiniZinc-Angular-Puzzle" target="_blank" rel="noopener">
             <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-1.41 1.41L18.17 11H2v2h16.17l-4.59 4.59L15 19l7-7-7-7z"/></svg></span>
             <div class="project__inner">
               <div class="project__thumb"><img src="../assets/img/projects/minizinc-angular.webp" alt="Projet MiniZinc &amp; Angular" width="130" height="135" loading="lazy"></div>
               <div class="project__details">
                 <h3 class="project__name">Projet MiniZinc &amp; Angular</h3>
                 <p class="project__desc">Création d’une interface web proposant quatre problèmes de satisfaction de contraintes. La résolution est assurée par MiniZinc et l’interface web est construite avec Angular. Les utilisateurs peuvent aussi créer leurs propres problèmes en définissant variables et contraintes. Un système de propagation et de rétropropagation de contraintes permet d’afficher dynamiquement le déroulement de la résolution.</p>
-                <div class="project__meta"><span>Minizinc, Angular</span><span>Public</span></div>
+                <div class="project__meta"><span>MiniZinc, Angular</span><span>Public</span></div>
               </div>
             </div>
           </a>
-          </div>
+            </div>
+          </details>
         </section>
         <section class="section section--contact reveal">
           <h2 class="title">TRAVAILLONS<br><span>ENSEMBLE</span></h2>
+          <div class="about__links contact__direct">
+            <a class="about__link about__link--accent" href="https://cal.com/timotheeafonso" target="_blank" rel="noopener">Réserver un appel de 30 min</a>
+            <a class="about__link" href="mailto:timothee.afonso.pro@gmail.com">timothee.afonso.pro@gmail.com</a>
+          </div>
           <form class="form" action="https://formspree.io/f/xljewzve" method="POST" novalidate>
             <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;" />
             <div class="form__row">
@@ -247,6 +224,7 @@ catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
               <span class="form__control"><textarea name="message" placeholder="Message"></textarea></span>
             </label>
             <button class="form__submit" type="submit">Envoyer</button>
+            <p class="form__note">Vos informations servent uniquement à vous répondre et ne sont jamais transmises.</p>
             <p class="form__status" role="status"></p>
           </form>
         </section>
@@ -254,7 +232,10 @@ catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
     </div>
   </div>
   <footer class="footer">
-    <div class="footer__links"></div>
+    <div class="footer__links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="mailto:timothee.afonso.pro@gmail.com">timothee.afonso.pro@gmail.com</a>
+    </div>
   </footer>
 </div>
 <script src="../assets/js/main.js"></script>
