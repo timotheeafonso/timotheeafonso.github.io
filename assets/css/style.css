@@ -732,3 +732,57 @@ a.entry:hover{background:var(--hover);}
   .list--timeline::before,.timeline__fill{left:5px;}
   .list--timeline .entry--experience::before{left:-30px;}
 }
+
+/* --------------------------------------------------------------------------
+   Bandeau de confiance : logos clients en masque monochrome.
+   Le masque prend la couleur du texte, donc il suit les deux thèmes tout seul
+   et se recolore au survol — ce qu'une image ne permet pas.
+   -------------------------------------------------------------------------- */
+.section--clients{padding-top:56px;gap:16px;}
+.section--clients + .section--services{padding-top:64px;}
+.clients__label{
+  font-family:var(--inter);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);
+}
+.clients{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:32px;padding:26px 32px;list-style:none;
+  background:var(--surface);border-radius:18px;
+}
+.clients__item{position:relative;}
+.clients__mark{
+  display:block;width:var(--w);height:var(--h);
+  background:var(--muted);
+  -webkit-mask:var(--src) center/contain no-repeat;
+          mask:var(--src) center/contain no-repeat;
+  opacity:.85;
+  transition:background .3s ease,opacity .3s ease,transform .3s cubic-bezier(.34,1.4,.5,1);
+}
+.clients__item::after{                       /* filet lime qui se trace au survol */
+  content:"";position:absolute;left:0;right:0;bottom:-12px;height:2px;border-radius:2px;
+  background:var(--lime);transform:scaleX(0);transform-origin:left;
+  transition:transform .34s cubic-bezier(.22,1,.36,1);
+}
+.clients__item:hover .clients__mark{background:var(--orange);opacity:1;transform:translateY(-3px);}
+.clients__item:hover::after{transform:scaleX(1);}
+
+/* hauteurs reglees a l'oeil : un logotype long doit etre plus bas qu'une marque carree */
+.clients__mark--pravdata{--src:url(../img/clients/pravdata.png);--h:44px;--w:45px;}
+.clients__mark--selfstorage{--src:url(../img/clients/selfstorage.png);--h:26px;--w:179px;}
+.clients__mark--limagrain{--src:url(../img/clients/limagrain.png);--h:26px;--w:108px;}
+
+/* apparition en cascade, portee par le .reveal de la section */
+.section--clients .clients__item{opacity:0;transform:translateY(12px);}
+.section--clients.is-visible .clients__item{
+  opacity:1;transform:none;
+  transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1);
+}
+.section--clients.is-visible .clients__item:nth-child(2){transition-delay:.12s;}
+.section--clients.is-visible .clients__item:nth-child(3){transition-delay:.24s;}
+
+@media (max-width:809px){
+  .clients{gap:22px;padding:20px 22px;}
+  .clients__mark--pravdata{--h:36px;--w:37px;}
+  .clients__mark--selfstorage{--h:21px;--w:144px;}
+  .clients__mark--limagrain{--h:21px;--w:87px;}
+}
