@@ -745,11 +745,24 @@ a.entry:hover{background:var(--hover);}
   color:var(--muted);
 }
 .clients{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:32px;padding:26px 32px;list-style:none;
+  overflow:hidden;padding:26px 32px;
   background:var(--surface);border-radius:18px;
 }
+.clients__viewport{overflow:hidden;}
+.clients__track{display:flex;width:100%;}
+/* Sur grand ecran : rangee posee, un seul groupe. Les copies ne servent qu'au
+   defilement telephone, elles sont donc retirees du flux ici. */
+.clients__group{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;list-style:none;
+}
+.clients__group[aria-hidden]{display:none;}
 .clients__item{position:relative;}
+/* 4 groupes identiques : glisser de 25 % revient a glisser d'un groupe pile */
+@keyframes clientsMarquee{
+  from{transform:translateX(0);}
+  to{transform:translateX(-25%);}
+}
 .clients__mark{
   display:block;width:var(--w);height:var(--h);
   background:var(--muted);
@@ -771,18 +784,39 @@ a.entry:hover{background:var(--hover);}
 .clients__mark--selfstorage{--src:url(../img/clients/selfstorage.png);--h:26px;--w:179px;}
 .clients__mark--limagrain{--src:url(../img/clients/limagrain.png);--h:26px;--w:108px;}
 
-/* apparition en cascade, portee par le .reveal de la section */
-.section--clients .clients__item{opacity:0;transform:translateY(12px);}
-.section--clients.is-visible .clients__item{
-  opacity:1;transform:none;
-  transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1);
-}
-.section--clients.is-visible .clients__item:nth-child(2){transition-delay:.12s;}
-.section--clients.is-visible .clients__item:nth-child(3){transition-delay:.24s;}
 
+/* Telephone : la rangee posee devient trop serree, on passe au defilement
+   continu. Les 3 copies reviennent dans le flux pour alimenter la boucle. */
 @media (max-width:809px){
-  .clients{gap:22px;padding:20px 22px;}
+  .clients{padding:20px 0;}
+  .clients__viewport{
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+  }
+  .clients__track{
+    width:max-content;
+    animation:clientsMarquee var(--marquee,12s) linear infinite;
+  }
+  .clients__group{width:auto;justify-content:flex-start;}
+  .clients__group[aria-hidden]{display:flex;}
+  .clients__item{margin-right:44px;}
   .clients__mark--pravdata{--h:36px;--w:37px;}
   .clients__mark--selfstorage{--h:21px;--w:144px;}
   .clients__mark--limagrain{--h:21px;--w:87px;}
+}
+/* la pause au survol n'a de sens que la ou un vrai curseur existe : sur
+   tactile, le :hover reste colle apres un appui et figerait le defilement */
+@media (max-width:809px) and (hover:hover){
+  .clients:hover .clients__track{animation-play-state:paused;}
+}
+
+/* Mouvement reduit : on fige le defilement et on revient a une rangee posee */
+/* Mouvement reduit : on revient a la rangee posee, y compris sur telephone */
+@media (prefers-reduced-motion:reduce){
+  .clients__track{animation:none;width:100%;}
+  .clients__group{width:100%;justify-content:space-between;}
+  .clients__group[aria-hidden]{display:none;}
+  .clients__item{margin-right:0;}
+  .clients{padding-left:20px;padding-right:20px;}
+  .clients__viewport{-webkit-mask-image:none;mask-image:none;}
 }
