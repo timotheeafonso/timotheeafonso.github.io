@@ -4,11 +4,262 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hôtel de test</title>
+  <title>Votre site web</title>
+  <style>
+    :root {
+      --ink: #1c2a24;
+      --muted: #6b7a73;
+      --line: #e3e8e5;
+      --soft: #f4f7f5;
+      --card: #ffffff;
+      --accent: #059669;
+      --accent-dark: #047857;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* Bandeau de démonstration */
+    .demo {
+      background: var(--ink);
+      color: #d7e2dc;
+      font-size: 13px;
+      text-align: center;
+      padding: 8px 16px;
+    }
+    .demo b { color: #fff; font-weight: 600; }
+
+    /* En-tête */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; gap: 32px; height: 68px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -.01em; }
+    .logo svg { width: 28px; height: 28px; color: var(--accent); }
+    .links { display: flex; gap: 26px; font-size: 15px; color: var(--muted); }
+    .links a:hover { color: var(--ink); }
+    .actions { margin-left: auto; display: flex; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 40px; padding: 0 18px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; border: 1px solid var(--line);
+      background: #fff; color: var(--ink); cursor: pointer; font-family: inherit;
+    }
+    .btn:hover { background: var(--soft); }
+    .btn.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .btn.primary:hover { background: #2c3d35; }
+
+    /* Accueil */
+    .hero {
+      background:
+        radial-gradient(900px 420px at 85% -10%, #d9efe5 0%, transparent 60%),
+        linear-gradient(180deg, var(--soft) 0%, #fff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero .wrap {
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px;
+      align-items: center; padding-top: 72px; padding-bottom: 80px;
+    }
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent-dark); margin-bottom: 16px;
+    }
+    h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -.025em; margin: 0 0 18px; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 520px; margin: 0 0 28px; }
+    .facts { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+    .facts li {
+      font-size: 14px; padding: 7px 14px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line); color: var(--ink);
+    }
+
+    /* Carte de réservation */
+    .booking {
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+      padding: 26px; box-shadow: 0 24px 50px -28px rgba(28,42,36,.35);
+    }
+    .booking h2 { font-size: 19px; margin: 0 0 18px; letter-spacing: -.01em; }
+    .fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+    .field {
+      display: block; background: var(--soft); border: 1px solid var(--line);
+      border-radius: 12px; padding: 9px 12px;
+    }
+    .field span { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .field input, .field select {
+      width: 100%; border: 0; background: transparent; padding: 2px 0 0;
+      font: inherit; font-size: 14px; color: var(--ink); outline: none;
+    }
+    .booking .btn { width: 100%; height: 48px; font-size: 15px; }
+    .booking small { display: block; margin-top: 12px; font-size: 13px; color: var(--muted); text-align: center; }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    section h2 { font-size: 30px; letter-spacing: -.02em; margin: 0 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 36px; max-width: 560px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .room { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #fff; }
+    .room .pic { height: 170px; }
+    .pic.a { background: linear-gradient(135deg, #b9dccb, #e9f3ee); }
+    .pic.b { background: linear-gradient(135deg, #c9d8e6, #eef3f7); }
+    .pic.c { background: linear-gradient(135deg, #ead9bf, #f7f1e6); }
+    .room .body { padding: 18px 20px 20px; }
+    .room h3 { margin: 0 0 4px; font-size: 17px; }
+    .room p { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+    .price { font-weight: 700; }
+    .price span { font-weight: 400; color: var(--muted); font-size: 14px; }
+
+    .alt { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .split ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+    .split li { display: flex; gap: 12px; align-items: flex-start; }
+    .split li::before {
+      content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px;
+      border-radius: 50%; background: var(--accent);
+    }
+    .callout {
+      background: #fff; border: 1px dashed #9fcdb8; border-radius: 18px; padding: 24px;
+    }
+    .callout h3 { margin: 0 0 6px; font-size: 18px; }
+    .callout p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    footer { padding: 36px 0 110px; font-size: 14px; color: var(--muted); }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+
+    @media (max-width: 860px) {
+      .links { display: none; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; padding-bottom: 56px; }
+      .grid, .split { grid-template-columns: 1fr; }
+      section { padding: 52px 0; }
+    }
+    @media (max-width: 480px) {
+      .wrap { padding: 0 16px; }
+      .actions .btn:not(.primary) { display: none; }
+      .fields { grid-template-columns: 1fr 1fr; }
+      .fields .field:last-child { grid-column: 1 / -1; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hôtel de test</h1>
-  <p>Page d'essai du bouton D+.</p>
+  <div class="demo">
+    <b>Page de démonstration</b> — le bouton en bas à droite est le widget D+, tel qu'il s'affiche une fois intégré à votre site.
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 12h8M12 8v8"/></svg>
+        Votre logo
+      </a>
+      <nav class="links" aria-label="Navigation principale">
+        <a href="#prestations">Vos prestations</a>
+        <a href="#apropos">À propos</a>
+        <a href="#apropos">Vos actualités</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="actions">
+        <a class="btn" href="#contact">Votre lien</a>
+        <a class="btn primary" href="#formulaire">Votre bouton</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Votre activité · Votre ville</span>
+          <h1>Votre site web</h1>
+          <p class="lead">Votre texte de présentation : quelques lignes pour décrire votre établissement, votre offre et ce qui vous distingue.</p>
+          <ul class="facts">
+            <li>Votre atout</li>
+            <li>Votre atout</li>
+            <li>Votre atout</li>
+          </ul>
+        </div>
+
+        <form class="booking" id="formulaire" onsubmit="return false">
+          <h2>Votre formulaire</h2>
+          <div class="fields">
+            <label class="field"><span>Champ</span><input type="text" placeholder="Votre saisie"></label>
+            <label class="field"><span>Champ</span><input type="text" placeholder="Votre saisie"></label>
+            <label class="field"><span>Champ</span><input type="text" placeholder="Votre saisie"></label>
+          </div>
+          <button class="btn primary" type="submit">Votre bouton d'action</button>
+          <small>Votre mention complémentaire</small>
+        </form>
+      </div>
+    </div>
+
+    <section id="prestations">
+      <div class="wrap">
+        <h2>Vos prestations</h2>
+        <p class="sub">Votre texte d'introduction pour présenter vos offres, produits ou services.</p>
+        <div class="grid">
+          <article class="room">
+            <div class="pic a"></div>
+            <div class="body">
+              <h3>Votre prestation</h3>
+              <p>Votre description en quelques mots</p>
+              <div class="price">Votre tarif</div>
+            </div>
+          </article>
+          <article class="room">
+            <div class="pic b"></div>
+            <div class="body">
+              <h3>Votre prestation</h3>
+              <p>Votre description en quelques mots</p>
+              <div class="price">Votre tarif</div>
+            </div>
+          </article>
+          <article class="room">
+            <div class="pic c"></div>
+            <div class="body">
+              <h3>Votre prestation</h3>
+              <p>Votre description en quelques mots</p>
+              <div class="price">Votre tarif</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="apropos">
+      <div class="wrap split">
+        <div>
+          <h2>Votre contenu</h2>
+          <p class="sub">Votre texte : le reste de votre page ne change pas.</p>
+          <ul>
+            <li>Votre premier argument</li>
+            <li>Votre deuxième argument</li>
+            <li>Votre troisième argument</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <h3>Le bouton D+ sur votre site</h3>
+          <p>Il s'affiche en bas à droite de l'écran, par-dessus votre page, sans modifier votre mise en page. Cliquez dessus pour l'essayer.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <span>Votre site web — page fictive à but de démonstration</span>
+      <span>Vos coordonnées · Vos mentions légales</span>
+    </div>
+  </footer>
+
   <script src="https://dplus.run/static/assets/widget.js" async data-key="dpsite_zGvK8RTpRAPhpy-H1xwDGA"
   data-lat="45.8992" data-lon="6.1294" data-place="Test Annecy"></script>
 </body>
